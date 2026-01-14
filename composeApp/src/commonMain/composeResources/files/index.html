@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./vexflow.js"></script>
+</head>
+<body>
+
+<div id="home-screen">
+    <div class="nav-menu-home">
+        <div class="grid-container">
+            <button class="menu-card" onclick="navigateTo('interval')">청음 훈련</button>
+            <button class="menu-card" onclick="navigateTo('rhythm')">리듬 훈련</button>
+            <button class="menu-card" onclick="navigateTo('melody')">통합 훈련</button>
+            <button class="menu-card">시창 훈련</button>
+        </div>
+    </div>
+</div>
+
+<div id="training-screen" style="display:none;">
+    <div class="top-bar">
+        <button class="back-btn" onclick="goHome()">◀ 뒤로</button>
+        <span id="current-title">훈련</span>
+    </div>
+    <div id="output"></div>
+    <div class="button-container">
+        <button class="main-btn" onclick="refreshQuiz()">새 문제 만들기</button>
+    </div>
+</div>
+
+<script src="./js/utils.js"></script>
+<script src="./js/rhythm.js"></script>
+<script src="./js/melody.js"></script>
+<script src="./js/interval.js"></script>
+<script src="./js/app.js"></script>
+
+</body>
+</html>

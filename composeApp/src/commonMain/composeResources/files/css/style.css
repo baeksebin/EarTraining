@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8f9fa;
+    font-family: 'Pretendard', sans-serif;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.nav-menu {
+    display: flex;
+    width: 100%;
+    background: #6200EE;
+    padding: 40px 0 15px 0;
+    justify-content: center;
+    gap: 12px;
+}
+
+.nav-menu button {
+    background: rgba(255,255,255,0.2);
+    border: 1.5px solid white;
+    padding: 12px 20px;
+    color: white;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.nav-menu button:active {
+    background: rgba(255,255,255,0.4);
+    transform: scale(0.95);
+}
+
+#output {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    background: white;
+    padding: 20px 0;
+}
+
+.button-container { margin-top: 20px; }
+
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #6200EE;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+canvas, svg { max-width: 95%; height: auto !important; }
+
+/* 기존 스타일 유지... */
+
+/* 홈 화면 전용 */
+#home-screen { width: 100%; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.home-title { font-size: 22px; font-weight: bold; margin-bottom: 25px; color: #333; }
+/* 홈 화면 그리드 컨테이너 수정 */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2열 유지 */
+    gap: 20px;                     /* 카드 사이 간격 */
+    width: 92%;                    /* 화면 좌우 여백 확보 (가로 비율 늘림) */
+    max-width: 500px;              /* 너무 커지지 않게 최대치 설정 */
+    margin-top: 20px;
+}
+
+/* 메뉴 카드 디자인 수정 */
+.menu-card {
+    width: 100%;
+    background: white;
+    border: 2px solid #6200EE;
+    border-radius: 16px;
+
+    /* ✅ 수정: 좌우 패딩을 10px -> 5px로 줄여서 '련'자가 들어갈 공간 확보 */
+    padding: 40px 5px;
+
+    /* ✅ 추가: 글자가 길어도 절대 아래로 내려가지 않게 한 줄로 고정 */
+    white-space: nowrap;
+
+    font-weight: bold;
+    color: #6200EE;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(98, 0, 238, 0.15);
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    -webkit-tap-highlight-color: transparent;
+
+    /* ✅ 추가: 글자가 중앙에 오도록 확실히 정렬 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+/* 터치 시 피드백 */
+.menu-card:active {
+    transform: scale(0.96);
+    background-color: #f3e5f5;
+}
+
+/* 훈련 화면 상단바 */
+.top-bar {
+    width: 100%; background: #6200EE; padding: 45px 15px 15px;
+    display: flex; align-items: center; color: white; font-weight: bold;
+}
+.back-btn { background: none; border: 1px solid white; color: white; padding: 5px 10px; border-radius: 4px; margin-right: 15px; }
+
+#training-screen { width: 100%; flex-direction: column; align-items: center; }
