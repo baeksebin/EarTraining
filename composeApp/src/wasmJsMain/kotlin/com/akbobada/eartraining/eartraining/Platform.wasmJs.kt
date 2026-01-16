@@ -7,3 +7,4 @@ class WasmPlatform : Platform {
 }
 
 actual fun getPlatform(): Platform = WasmPlatform()
+actual fun applyPlatformSettings(webView: Any) { /* WASM도 비워둠 */ }

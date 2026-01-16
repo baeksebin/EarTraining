@@ -7,3 +7,4 @@ class IOSPlatform: Platform {
 }
 
 actual fun getPlatform(): Platform = IOSPlatform()
+actual fun applyPlatformSettings(webView: Any) { /* iOS는 설정할 게 없으므로 비워둠 */ }

@@ -2,9 +2,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover, shrink-to-fit=no">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./vexflow.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
 </head>
 <body>
 
@@ -23,10 +24,31 @@
     <div class="top-bar">
         <button class="back-btn" onclick="goHome()">◀ 뒤로</button>
         <span id="current-title">훈련</span>
+        <select id="level-select" onchange="changeLevel(this.value)" style="margin-left: auto; padding: 5px; border-radius: 5px;">
+            <option value="1">Level 1</option>
+            <option value="2">Level 2</option>
+            <option value="3">Level 3</option>
+        </select>
     </div>
+
+    <p id="quiz-instruction" style="text-align: center; margin: 15px 0; font-weight: bold; color: #555;">
+        소리를 듣고 정답을 맞혀보세요.
+    </p>
+
     <div id="output"></div>
-    <div class="button-container">
-        <button class="main-btn" onclick="refreshQuiz()">새 문제 만들기</button>
+
+    <div id="action-buttons" class="button-container" style="display: flex; justify-content: center; gap: 10px; margin-bottom: 20px;">
+        <button class="main-btn" onclick="playQuestion()">문제 다시 듣기</button>
+        <button class="main-btn" onclick="generateIntervalQuiz()" style="background-color: #6c757d;">새 문제 만들기</button>
+    </div>
+
+    <div id="piano-wrapper">
+        <div id="piano-container"></div>
+    </div>
+
+    <div id="piano-navigator-wrapper" draggable="false">
+        <div id="piano-navigator-container" draggable="false"></div>
+        <div id="navigator-indicator" draggable="false"></div>
     </div>
 </div>
 

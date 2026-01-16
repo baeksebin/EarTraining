@@ -9,16 +9,22 @@ import androidx.compose.ui.Modifier
 import com.multiplatform.webview.web.WebView
 import com.multiplatform.webview.web.rememberWebViewState
 
+expect fun applyPlatformSettings(webView: Any)
 // commonMain/src/commonMain/kotlin/.../App.kt
 @Composable
 fun App() {
     val platform = remember { getPlatform() }
     val webViewState = rememberWebViewState(platform.htmlPath)
 
-    Box(modifier = Modifier.fillMaxSize()) {
-        WebView(
-            state = webViewState,
-            modifier = Modifier.fillMaxSize()
-        )
+    MaterialTheme { // 테마 적용 권장
+        Box(modifier = Modifier.fillMaxSize()) {
+            WebView(
+                state = webViewState,
+                modifier = Modifier.fillMaxSize(), // ✅ 반드시 추가
+                onCreated = { nativeWebView ->
+                    applyPlatformSettings(nativeWebView)
+                }
+            )
+        }
     }
 }
